@@ -1,0 +1,303 @@
+:root {
+  /* لوحة الألوان الجديدة */
+  --bg: #121212;            /* خلفية سوداء داكنة */
+  --text: #e0e0e0;          /* نص رمادي فاتح */
+  --muted: #a0a0a0;         /* نص ثانوي باهت */
+  --primary: #00e676;       /* أخضر نيون براق للتركيز */
+  --accent: #4fc3f7;        /* أزرق سماوي للإبراز */
+  --card: #1f1f1f;          /* لون البطاقات أغمق قليلاً من الخلفية */
+  --border: #333333;        /* حدود رمادية داكنة */
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* ظل داكن */
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* خط حديث وواضح */
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* الحاوية */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+/* شريط التنقل */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(31, 31, 31, 0.9); /* خلفية شبه شفافة */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-inline: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* قسم البطل (Hero Section) */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.roles {
+  color: var(--muted);
+  margin: 0 0 25px;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--bg);
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 230, 118, 0.3);
+}
+
+.hero-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.hero-img img {
+  width: 420px;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* أقسام عامة */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 32px;
+  margin: 0 0 30px;
+  border-inline-start: 5px solid var(--primary);
+  padding-inline-start: 15px;
+  font-weight: 700;
+}
+
+.about-text {
+  line-height: 1.95;
+  font-size: 1.05em;
+}
+
+/* بطاقات عامة */
+.cards {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* المهارات */
+.skill .thumb {
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background: #252525;
+}
+
+.skill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.skill-body h3 {
+  margin: 8px 0 10px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.skill-body p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* المشاريع */
+.project .thumb {
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background: #252525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+.project .thumb.contain img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.project-body h3 {
+  margin: 8px 0 10px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.project-body p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* اتصل بي */
+.socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.social:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 230, 118, 0.2);
+}
+
+.social svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary);
+}
+
+/* الفوتر */
+.footer {
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+
+/* التجاوبية (Responsive) */
+@media (max-width: 950px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-img {
+    margin: auto;
+  }
+  .project .thumb {
+    height: 240px;
+  }
+}
+
+@media (max-width: 620px) {
+  nav {
+    display: none;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .project .thumb {
+    height: 200px;
+  }
+  .hero h1 {
+    font-size: 26px;
+  }
+  .roles {
+    font-size: 15px;
+  }
+}
